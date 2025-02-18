@@ -1,80 +1,87 @@
 # Cybersecurity-Nessus-Assessment
 
-### Overview
+## Overview
 
-As cybersecurity analysts at CyberTech Solutions, we conducted a vulnerability assessment on Linux servers and web applications using Nessus. The goal was to identify security risks, analyze vulnerabilities, and automate security monitoring using credentialed scans and SMTP-based reporting.
+As cybersecurity analysts at CyberTech Solutions, we used Nessus to conduct a vulnerability assessment on Linux servers and web applications. Our goal was to identify security risks, analyze vulnerabilities, and automate security monitoring using credentialed scans and SMTP-based reporting.
 
-### Tools Used
+---
 
-Nessus (for vulnerability scanning)
+## Tools Used
 
-Linux (Ubuntu, CentOS, Debian)
+* Nessus (for vulnerability scanning)
 
-Python & Bash (for automation)
+* Linux (Ubuntu, Kali)
 
-SMTP (for email reporting)
+* SMTP (for email reporting)
 
-OpenSSH, Apache, Nginx (web services assessment)
+* OpenSSH, Apache, Nginx (web services assessment)
 
-### Assessment Process
+---
 
-🔹 1. Credentialed Scan on Linux Server
+## Assessment Process
 
-Configured SSH-based authentication for Nessus credentialed scans.
+### Credentialed Scan on Linux Server
 
-Verified root access settings in /etc/ssh/sshd_config.
+* Configured SSH-based authentication for Nessus credentialed scans.
 
-Assessed vulnerabilities in OpenSSH versions and configurations.
+* Verified root access settings in /etc/ssh/sshd_config.
 
-Identified misconfigurations such as weak password authentication settings.
+* Assessed vulnerabilities in OpenSSH versions and configurations.
 
-🔹 2. Web Application Security Assessment
-
-Conducted a web vulnerability scan using Nessus.
-
-Identified OWASP Top 10 issues (XSS, SQL Injection, etc.).
-
-Tested Apache & Nginx configurations for security gaps.
-
-Reviewed HTTP method restrictions in /etc/apache2/apache2.conf.
-
-🔹 3. Automated Email Reporting
-
-Configured SMTP settings in Nessus to send reports via email.
-
-Enabled TLS encryption for secure transmission (smtp.gmail.com:587).
-
-Implemented Python-based automation for sending scan reports.
+* Identified misconfigurations such as weak password authentication settings.
 
 
-Results & Recommendations
+### Web Application Security Assessment
 
-1. Critical Vulnerabilities (CVE Analysis)
+* Conducted a web vulnerability scan using Nessus.
 
-Node.js (CVE-2024) - Remote Code Execution (RCE)
+* Identified OWASP Top 10 issues (XSS, SQL Injection, etc.).
 
-Fix: Upgrade to version 18.20.4+, 20.15.1+, or 22.4.1+.
+* Tested Apache & Nginx configurations for security gaps.
 
-nginx 1-Byte Memory Overwrite (RCE - CVE-2024)
+* Reviewed HTTP method restrictions in /etc/apache2/apache2.conf.
 
-Fix: Upgrade nginx to 1.20.1 or higher.
 
-2. High-Risk Vulnerabilities
+### Automated Email Reporting
 
-Apache mod_status Information Disclosure
+* Configured SMTP settings in Nessus to send reports via email.
 
-Fix: Disable mod_status or restrict access.
+* Enabled TLS encryption for secure transmission (smtp.gmail.com:587).
 
-SSL Certificate Cannot Be Trusted
+* Implemented Python-based automation for sending scan reports.
 
-Fix: Install a valid SSL certificate from a trusted CA.
+---
 
-3. Medium-Risk Vulnerabilities
+## Results & Recommendations
 
-nginx Information Disclosure
+### Critical Vulnerabilities (CVE Analysis)
 
-Fix: Update nginx to 1.17.7+.
+1. Node.js (CVE-2024) - Remote Code Execution (RCE)
 
-aioHTTP XSS (Cross-Site Scripting)
+    - Fix: Upgrade to version 18.20.4+, 20.15.1+, or 22.4.1+.
 
-Fix: Upgrade aioHTTP to 3.9.4+ and implement input validation.
+2. nginx 1-Byte Memory Overwrite (RCE - CVE-2024)
+
+    - Fix: Upgrade nginx to 1.20.1 or higher.
+
+
+### High-Risk Vulnerabilities
+
+1. Apache mod_status Information Disclosure
+
+    * Fix: Disable mod_status or restrict access.
+
+2. SSL Certificate Cannot Be Trusted
+
+    * Fix: Install a valid SSL certificate from a trusted CA.
+
+
+### Medium-Risk Vulnerabilities
+
+1. nginx Information Disclosure
+
+    * Fix: Update nginx to 1.17.7+.
+
+2. aioHTTP XSS (Cross-Site Scripting)
+
+    * Fix: Upgrade aioHTTP to 3.9.4+ and implement input validation.
